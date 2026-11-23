@@ -1,0 +1,32 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+## David Barrera NC = 1388
+## 1. Leer el archivo CSV comida pais india
+df_food_india = pd.read_csv('indian_food.csv')
+print("\n---- DATOS LEIDOS DESDE CSV comida india 1388 ----")
+print(df_food_india)
+print("\n---- Mostrar Nombre comida + ingredientes 1388 ----")
+recetas = df_food_india[['name', 'ingredients']]
+print(recetas)
+print("\n---- Tiempo de cocinado mostrar 10 registros con head 1388 ----")
+nombre_y_hora = df_food_india[['name','cook_time']].head(10)
+print(nombre_y_hora)
+print("\n---- Grafica comida (X) Tiempo de cocinado (Y) ----")
+print("\n---- Grafica comida (X) Texto a 30 grados ----")
+nombre_y_hora.plot.bar(x='name',y='cook_time', rot=30)
+plt.title('Comida tipica de india David Barrera NC = 1388')
+plt.xlabel('Nombre platillo')
+plt.ylabel('Tiempo de cocinado')
+plt.show()
+nombre_y_hora = df_food_india[['name', 'prep_time', 'cook_time']].head(10)
+nombre_y_hora.plot.bar(x='name', rot=30)
+plt.title('Grafica de 2 columnas David Barrera NC = 1388')
+plt.xlabel('Nombre platillo')
+plt.ylabel('Tiempo de cocinado prep y comida')
+plt.show()
+plt.title('Graficas apiladas una tras otra verticalmente NC = 1388')
+nombre_y_hora.plot.bar(x='name', stacked=True, rot=30)
+plt.title('Grafica de 2 columnas David Barrera NC = 1388')
+plt.xlabel('Nombre platillo')
+plt.ylabel('Tiempo de cocinado prep y comida')
+plt.show()
